@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:peliculas/providers/movies_providers.dart';
 import 'package:peliculas/screens/screens.dart';
 import 'package:provider/provider.dart';
-void main() {
-  runApp(AppState());
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+Future main() async{
+  await dotenv.load(fileName: ".env");
+  runApp(const AppState());
 }
 
 class AppState extends StatelessWidget {
+  const AppState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => MoviesProvider(), lazy: false ),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     );
   }
 }
