@@ -16,6 +16,8 @@ class Movie {
     double voteAverage;
     int voteCount;
 
+    String? heroId;
+
     get fullPosterImg{
       if(posterPath != null) {
         return 'https://image.tmdb.org/t/p/w500$posterPath';
@@ -45,6 +47,7 @@ class Movie {
         required this.video,
         required this.voteAverage,
         required this.voteCount,
+        this.heroId,
     });
 
     factory Movie.fromRawJson(String str) => Movie.fromJson(json.decode(str));
